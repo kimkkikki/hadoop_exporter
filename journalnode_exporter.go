@@ -199,7 +199,7 @@ func (e *JournalnodeExporter) Collect(ch chan<- prometheus.Metric) {
 		nameDataMap := nameData.(map[string]interface{})
 		clusterNameStr := *clusterName
 		if nameDataMap["name"] == "Hadoop:service=JournalNode,name=Journal-"+clusterNameStr {
-			e.SyncsNumOps.Set(nameDataMap["SyncsNumOps"].(float64))
+			e.SyncsNumOps.Set(nameDataMap["Syncs60sNumOps"].(float64))
 			e.BatchesWritten.Set(nameDataMap["BatchesWritten"].(float64))
 			e.TxnsWritten.Set(nameDataMap["TxnsWritten"].(float64))
 			e.BytesWritten.Set(nameDataMap["BytesWritten"].(float64))
